@@ -29,6 +29,12 @@ function manejarErrores(errores) {
     return cantidadErrores;
 }
 
+function limpiarErroresAnteriores() {
+    const $erroresAnteriores = document.querySelectorAll('#errores li');
+    for(let i=0; i < $erroresAnteriores.length; i++) {
+        $erroresAnteriores[i].remove();
+    }
+}
 
 function validarNombre(nombre) {
     if(nombre.length === 0) {
