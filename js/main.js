@@ -7,6 +7,10 @@ function validarFormulario(event) {
     const ciudad = $form.ciudad.value;
     const descripcionRegalo = $form['descripcion-regalo'].value;
 
+    const errorNombre = validarNombre(nombre);
+    const errorCiudad = validarCiudad(ciudad);
+    const errorDescripcionRegalo = validarDescripcionRegalo(descripcionRegalo);
+
 }
 
 const nombre = $form.nombre.value;
