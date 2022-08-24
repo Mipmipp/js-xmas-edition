@@ -17,6 +17,15 @@ function validarFormulario(event) {
         'descripcion-regalo': errorDescripcionRegalo,
     };
 
+    const esExito = manejarErrores(errores) === 0;
+
+    if(esExito) {
+        $form.className = 'oculto';
+        document.querySelector('#exito').className = '';
+        setTimeout(function(){
+            window.location.href = 'wishlist.html';
+        },5000);
+    }
 }
 
 const nombre = $form.nombre.value;
