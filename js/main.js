@@ -28,10 +28,6 @@ function validarFormulario(event) {
     }
 }
 
-const nombre = $form.nombre.value;
-const ciudad = $form.ciudad.value;
-const comportamiento = $form.comportamiento.value;
-const descripcion = $form['descripcion-regalo'].value;
 function manejarErrores(errores) {
     const keys = Object.keys(errores);
     const $errores = document.querySelector('#errores');
