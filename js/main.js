@@ -4,6 +4,31 @@ const nombre = $form.nombre.value;
 const ciudad = $form.ciudad.value;
 const comportamiento = $form.comportamiento.value;
 const descripcion = $form['descripcion-regalo'].value;
+function manejarErrores(errores) {
+    const keys = Object.keys(errores);
+    const $errores = document.querySelector('#errores');
+    let cantidadErrores = 0;
+
+    limpiarErroresAnteriores();
+
+    keys.forEach(function(key){
+        const error = errores[key];
+
+        if(error) {
+            cantidadErrores++;
+            $form[key].className = 'error'
+
+            const $error = document.createElement('li');
+            $error.innerText = error;
+            $errores.appendChild($error);
+        } else {
+            $form[key].className = '';
+        }
+    });
+
+    return cantidadErrores;
+}
+
 
 function validarNombre(nombre) {
     if(nombre.length === 0) {
