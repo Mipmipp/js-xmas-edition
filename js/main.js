@@ -11,6 +11,12 @@ function validarFormulario(event) {
     const errorCiudad = validarCiudad(ciudad);
     const errorDescripcionRegalo = validarDescripcionRegalo(descripcionRegalo);
 
+    const errores = {
+        nombre: errorNombre,
+        ciudad: errorCiudad,
+        'descripcion-regalo': errorDescripcionRegalo,
+    };
+
 }
 
 const nombre = $form.nombre.value;
