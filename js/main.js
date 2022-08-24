@@ -1,4 +1,6 @@
 const $form = document.querySelector('#carta-a-santa');
+$form.onsubmit = validarFormulario;
+
 function validarFormulario(event) {  
     event.preventDefault();
 
