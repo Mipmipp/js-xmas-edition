@@ -2,6 +2,11 @@ const $form = document.querySelector('#carta-a-santa');
 function validarFormulario(event) {  
     event.preventDefault();
 
+    const $form = document.querySelector('#carta-a-santa');
+    const nombre = $form.nombre.value;
+    const ciudad = $form.ciudad.value;
+    const descripcionRegalo = $form['descripcion-regalo'].value;
+
 }
 
 const nombre = $form.nombre.value;
