@@ -14,6 +14,10 @@ function validarNombre(nombre) {
         return 'Este campo debe tener menos de 50 caracteres'
     }
 
+    if(!/^[a-z]+$/i.test(nombre)) {
+        return 'Este campo sólo puede tener letras'
+    }
+
     return '';
 }
 
@@ -25,13 +29,17 @@ function validarCiudad(ciudad) {
     return '';
 }
 
-function validarDescripcion(descripcion) {
-    if(descripcion.length === 0) {
+function validarDescripcionRegalo(descripcionRegalo) {
+    if(descripcionRegalo.length === 0) {
         return 'Este campo debe tener al menos 1 caracter';
     }
 
-    if(descripcion.length >= 100) {
+    if(descripcionRegalo.length >= 100) {
         return 'Este campo debe tener menos de 100 caracteres'
+    }
+
+    if(!/^[a-z0-9]+$/i.test(descripcionRegalo)) {
+        return 'Este campo sólo puede tener letras y números'
     }
 
     return '';
