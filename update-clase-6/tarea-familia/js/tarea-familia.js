@@ -102,6 +102,7 @@ function resetear() {
 function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
     const keys = Object.keys(erroresEdadesIntegrantes);
     const $errores = document.querySelector('#errores-edades');
+    const $integrantes = document.querySelectorAll('.integrante input');
     let cantidadErrores = 0;
 
     borrarErroresAnteriores();
@@ -111,14 +112,14 @@ function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
 
         if(error) {
             cantidadErrores++;
-            // input edad-integrante-<numero>.className = 'error';
+            $integrantes[key].className = 'error';
 
             const $error = document.createElement('li');
             $error.innerText = error;
             $error.className = `error-${[key]}`;
             $errores.appendChild($error);
         } else {
-            // input edad-integrante-<numero>.className = '';
+            $integrantes[key].className = '';
         }
     });
     
