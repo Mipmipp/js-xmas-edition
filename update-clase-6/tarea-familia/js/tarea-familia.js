@@ -68,6 +68,8 @@ function mostrarEdad(tipo, valor) {
 }
 
 function resetear() {
+    BorrarErroresAnteriores();
+    limpiarErrorCantidadIntegrantes();
     borrarIntegrantesAnteriores();
     ocultarElemento('#calculos');
     ocultarElemento('#calcular');
