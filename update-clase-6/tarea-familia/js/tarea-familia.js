@@ -40,14 +40,6 @@ document.querySelector('#calcular').onclick = function(event) {
 
 document.querySelector('#resetear').onclick = resetear;
 
-
-function borrarIntegrantesAnteriores() {
-    const $integrantes = document.querySelectorAll('.integrante');
-    for (let i = 0; i < $integrantes.length; i++) {
-        $integrantes[i].remove();
-    }
-}
-
 function crearIntegrantes(cantidadIntegrantes) {
     if (cantidadIntegrantes > 0) {
         mostrarElemento('#calcular'); 
@@ -77,6 +69,14 @@ function crearIntegrante(indice) {
     const $integrantes = document.querySelector('#integrantes');
     $integrantes.appendChild($div);
 }
+
+function borrarIntegrantesAnteriores() {
+    const $integrantes = document.querySelectorAll('.integrante');
+    for (let i = 0; i < $integrantes.length; i++) {
+        $integrantes[i].remove();
+    }
+}
+
 
 function obtenerEdadesIntegrantes() {
     const $integrantes = document.querySelectorAll('.integrante input');
@@ -126,6 +126,31 @@ function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
     return cantidadErrores;
 }
 
+function manejarErroresCantidadIntegrantes(erroresIntegrantes) {
+    const keys = Object.keys(erroresIntegrantes);
+    const $errores = document.querySelector('#errores-integrantes');
+    let cantidadErrores = 0;
+
+    borrarErroresAnteriores();
+
+    keys.forEach(function(key) {
+        const error = erroresIntegrantes[key];
+
+        if(error) {
+            cantidadErrores++;
+            $form[key].className = 'error'
+
+            const $error = document.createElement('li');
+            $error.innerText = error;
+            $errores.appendChild($error); 
+        } else {
+            $form[key].className = ''
+        }
+    });
+    
+    return cantidadErrores;
+}
+
 function validarEdadIntegrantes(edades) {
     let errores = {};
     for(let i = 0; i < edades.length; i++) {
@@ -156,32 +181,6 @@ function validarCantidadIntegrantes(cantidadIntegrantes) {
     return '';
 }
 
-
-function manejarErroresCantidadIntegrantes(erroresIntegrantes) {
-    const keys = Object.keys(erroresIntegrantes);
-    const $errores = document.querySelector('#errores-integrantes');
-    let cantidadErrores = 0;
-
-    borrarErroresAnteriores();
-
-    keys.forEach(function(key) {
-        const error = erroresIntegrantes[key];
-
-        if(error) {
-            cantidadErrores++;
-            $form[key].className = 'error'
-
-            const $error = document.createElement('li');
-            $error.innerText = error;
-            $errores.appendChild($error); 
-        } else {
-            $form[key].className = ''
-        }
-    });
-    
-    return cantidadErrores;
-}
-
 function borrarErroresAnteriores() {
     const $erroresIntegrantesAnteriores = document.querySelectorAll('#errores-integrantes li');
     for(let i=0; i < $erroresIntegrantesAnteriores.length; i++) {
@@ -205,35 +204,4 @@ function mostrarElemento(elemento) {
 
 function ocultarElemento(elemento) {
     document.querySelector(elemento).className = 'oculto';
-}
-
-function obtenerMayorEdad(edades) {
-    let mayorEdad = edades[0];
-    for (let i = 1; i < edades.length; i++) {
-        if (edades [i] > mayorEdad) {
-            mayorEdad = edades [i];
-        }
-    }
-
-    return mayorEdad;
-}
-
-function obtenerMenorEdad(edades) {
-    let menorEdad = edades[0];
-    for (let i = 1; i < edades.length; i++) {
-        if (edades[i] < menorEdad) {
-            menorEdad = edades[i];
-        }
-    
-    }
-    return menorEdad;
-}
-
-function obtenerPromedio(edades) {
-    let acumulador = 0;
-    for (let i = 0; i < edades.length; i++) {
-        acumulador += edades[i];
-    }
-
-    return (acumulador / edades.length).toFixed(2);
 }
