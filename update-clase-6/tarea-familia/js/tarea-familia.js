@@ -82,8 +82,21 @@ function resetear() {
     
 }
 
+function BorrarErroresAnteriores() {
+    const $erroresIntegrantesAnteriores = document.querySelectorAll('#errores-integrantes li');
+    for(let i=0; i < $erroresIntegrantesAnteriores.length; i++) {
+        $erroresIntegrantesAnteriores[i].remove();
     }
 
+    const $erroresEdadesAnteriores = document.querySelectorAll('#errores-edades li');
+    for(let i=0; i < $erroresEdadesAnteriores.length; i++) {
+        $erroresEdadesAnteriores[i].remove();
+    }
+}
+
+function limpiarErrorCantidadIntegrantes() {
+    const InputCantidadIntegrantes = document.querySelector('#cantidad-integrantes');
+    InputCantidadIntegrantes.className = '';
 }
 
 function mostrarElemento(elemento) {
