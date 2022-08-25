@@ -1,19 +1,42 @@
+const $form = document.querySelector('#calculadora-integrantes');
+const $formEdadesintegrantes = document.getElementById('#integrantes');
+
 document.querySelector('#aniadir-cantidad-integrantes').onclick = function(event) {
     event.preventDefault();
+
     const $cantidadIntegrantes = document.querySelector('#cantidad-integrantes');
     const cantidadIntegrantes = Number($cantidadIntegrantes.value);
+    const errorCantidadIntegrantes = validarCantidadIntegrantes(cantidadIntegrantes);
 
-    borrarIntegrantesAnteriores();
-    crearIntegrantes(cantidadIntegrantes);
+    const erroresIntegrantes = {
+        'cantidad-integrantes': errorCantidadIntegrantes,
+    }
+
+    const esExito = manejarErroresCantidadIntegrantes(erroresIntegrantes) === 0;
+
+    if(esExito) {
+        borrarIntegrantesAnteriores();
+        crearIntegrantes(cantidadIntegrantes);        
+    } else {
+        borrarIntegrantesAnteriores();
+    }
+
 };
 
 document.querySelector('#calcular').onclick = function(event) {
     event.preventDefault();
-    const numeros = obtenerEdadesIntegrantes();
-    mostrarEdad('mayor', obtenerMayorNumero(numeros));
-    mostrarEdad('menor', obtenerMenorNumero(numeros));
-    mostrarEdad('promedio', obtenerPromedio(numeros));
-    mostrarElemento('#calculos');
+    const edades = obtenerEdadesIntegrantes();
+    const erroresEdadesIntegrantes = validarEdadIntegrantes(edades);
+
+
+    const esExito = manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) === 0;
+
+    if(esExito) {
+        mostrarEdad('mayor', obtenerMayorEdad(edades));
+        mostrarEdad('menor', obtenerMenorEdad(edades));
+        mostrarEdad('promedio', obtenerPromedio(edades));
+        mostrarElemento('#calculos');
+    }
 };
 
 document.querySelector('#resetear').onclick = resetear;
@@ -43,9 +66,12 @@ function crearIntegrante(indice) {
     $div.className = 'integrante';
 
     const $label = document.createElement('label');
-    $label.textContent = 'Edad del integrante #: ' + (indice + 1);
+    $label.textContent = 'Edad del integrante #' + (indice + 1) + ': ';
     const $input = document.createElement('input');
     $input.type = 'number';
+    $input.min = '0';
+    $input.class = '';
+    $input.name= `edad-integrante-${indice + 1}`;
 
     $div.appendChild($label);
     $div.appendChild($input);
