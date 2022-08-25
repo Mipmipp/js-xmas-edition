@@ -1,5 +1,4 @@
 const $form = document.querySelector('#calculadora-integrantes');
-const $formEdadesintegrantes = document.getElementById('#integrantes');
 
 document.querySelector('#aniadir-cantidad-integrantes').onclick = function(event) {
     event.preventDefault();
@@ -71,7 +70,6 @@ function crearIntegrante(indice) {
     $input.type = 'number';
     $input.min = '0';
     $input.class = '';
-    $input.name= `edad-integrante-${indice + 1}`;
 
     $div.appendChild($label);
     $div.appendChild($input);
