@@ -92,7 +92,7 @@ function mostrarEdad(tipo, valor) {
 }
 
 function resetear() {
-    BorrarErroresAnteriores();
+    borrarErroresAnteriores();
     limpiarErrorCantidadIntegrantes();
     borrarIntegrantesAnteriores();
     ocultarElemento('#calculos');
@@ -104,7 +104,7 @@ function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
     const $errores = document.querySelector('#errores-edades');
     let cantidadErrores = 0;
 
-    BorrarErroresAnteriores();
+    borrarErroresAnteriores();
 
     keys.forEach(function(key) {
         const error = erroresEdadesIntegrantes[key];
@@ -161,7 +161,7 @@ function manejarErroresCantidadIntegrantes(erroresIntegrantes) {
     const $errores = document.querySelector('#errores-integrantes');
     let cantidadErrores = 0;
 
-    BorrarErroresAnteriores();
+    borrarErroresAnteriores();
 
     keys.forEach(function(key) {
         const error = erroresIntegrantes[key];
@@ -181,7 +181,7 @@ function manejarErroresCantidadIntegrantes(erroresIntegrantes) {
     return cantidadErrores;
 }
 
-function BorrarErroresAnteriores() {
+function borrarErroresAnteriores() {
     const $erroresIntegrantesAnteriores = document.querySelectorAll('#errores-integrantes li');
     for(let i=0; i < $erroresIntegrantesAnteriores.length; i++) {
         $erroresIntegrantesAnteriores[i].remove();
@@ -194,8 +194,8 @@ function BorrarErroresAnteriores() {
 }
 
 function limpiarErrorCantidadIntegrantes() {
-    const InputCantidadIntegrantes = document.querySelector('#cantidad-integrantes');
-    InputCantidadIntegrantes.className = '';
+    const inputCantidadIntegrantes = document.querySelector('#cantidad-integrantes');
+    inputCantidadIntegrantes.className = '';
 }
 
 function mostrarElemento(elemento) {
@@ -207,36 +207,25 @@ function ocultarElemento(elemento) {
 }
 
 function obtenerMayorEdad(edades) {
-    let MayorEdad = edades[0];
+    let mayorEdad = edades[0];
     for (let i = 1; i < edades.length; i++) {
-        if (edades [i] > MayorEdad) {
-            MayorEdad = edades [i];
+        if (edades [i] > mayorEdad) {
+            mayorEdad = edades [i];
         }
     }
 
-    return MayorEdad;
-}
-
-function obtenerMayorEdad(edades) {
-    let MayorEdad = edades[0];
-    for (let i = 1; i < edades.length; i++) {
-        if (edades [i] > MayorEdad) {
-            MayorEdad = edades [i];
-        }
-    }
-
-    return MayorEdad;
+    return mayorEdad;
 }
 
 function obtenerMenorEdad(edades) {
-    let MenorEdad = edades[0];
+    let menorEdad = edades[0];
     for (let i = 1; i < edades.length; i++) {
-        if (edades[i] < MenorEdad) {
-            MenorEdad = edades[i];
+        if (edades[i] < menorEdad) {
+            menorEdad = edades[i];
         }
     
     }
-    return MenorEdad;
+    return menorEdad;
 }
 
 function obtenerPromedio(edades) {
