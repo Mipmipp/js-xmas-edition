@@ -101,6 +101,32 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
+    const keys = Object.keys(erroresEdadesIntegrantes);
+    const $errores = document.querySelector('#errores-edades');
+    let cantidadErrores = 0;
+
+    BorrarErroresAnteriores();
+
+    keys.forEach(function(key) {
+        const error = erroresEdadesIntegrantes[key];
+
+        if(error) {
+            cantidadErrores++;
+            // input edad-integrante-<numero>.className = 'error';
+
+            const $error = document.createElement('li');
+            $error.innerText = error;
+            $error.className = `error-${[key]}`;
+            $errores.appendChild($error);
+        } else {
+            // input edad-integrante-<numero>.className = '';
+        }
+    });
+    
+    return cantidadErrores;
+}
+
 function validarEdadIntegrantes(edades) {
     let errores = {};
     for(let i = 0; i < edades.length; i++) {
