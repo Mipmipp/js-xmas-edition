@@ -73,9 +73,34 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function validarEdadIntegrantes(edades) {
+    let errores = {};
+    for(let i = 0; i < edades.length; i++) {
+        errores[i] = '';
+
+        if(edades[i] == ' ') {
+            errores[i] = `Integrante#${i + 1} no puede estar vacío`;
         }
+        
+        if(edades[i] <= 0) {
+            errores[i] = `Integrante#${i + 1} no puede ser menor o igual a cero`;
+        }
+        
+    }
+    
+    return errores;
+}
+
+function validarCantidadIntegrantes(cantidadIntegrantes) {
+    if(cantidadIntegrantes < 0) {
+        return 'Este campo no puede contener números negativos.';
     }
 
+    if(cantidadIntegrantes == '') {
+        return 'Este campo no puede estar vacío ni ser cero.';
+    }
+    
+    return '';
 }
 
 
