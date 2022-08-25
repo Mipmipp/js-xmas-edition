@@ -78,8 +78,30 @@ function resetear() {
 
 }
 
+
+function manejarErroresCantidadIntegrantes(erroresIntegrantes) {
+    const keys = Object.keys(erroresIntegrantes);
+    const $errores = document.querySelector('#errores-integrantes');
+    let cantidadErrores = 0;
+
+    BorrarErroresAnteriores();
+
+    keys.forEach(function(key) {
+        const error = erroresIntegrantes[key];
+
+        if(error) {
+            cantidadErrores++;
+            $form[key].className = 'error'
+
+            const $error = document.createElement('li');
+            $error.innerText = error;
+            $errores.appendChild($error); 
+        } else {
+            $form[key].className = ''
         }
+    });
     
+    return cantidadErrores;
 }
 
 function BorrarErroresAnteriores() {
