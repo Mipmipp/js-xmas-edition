@@ -17,7 +17,7 @@ function probarValidarCantidadIntegrantes() {
 
 function probarValidarEdadIntegrantes() {
     casoCorrectoEdadIntegrantes();
-    ErrorEdadIntegrantesCero();
+    errorEdadIntegrantesCero();
     errorEdadIntegrantesVacia();
 }
 
@@ -29,7 +29,7 @@ function casoCorrectoEdadIntegrantes() {
     )
 }
 
-function ErrorEdadIntegrantesCero() {
+function errorEdadIntegrantesCero() {
     const errores = validarEdadIntegrantes([-1, 1]);
     console.assert(
         errores['0'] === 'Integrante#1 no puede ser un número negativo.',
