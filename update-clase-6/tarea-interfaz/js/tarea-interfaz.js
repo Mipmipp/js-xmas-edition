@@ -79,6 +79,18 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function validarCantidadPersonas(cantidadPersonas) {
+    if(cantidadPersonas < 0) {
+        return 'Este campo no puede contener números negativos.';
+    }
+
+    if(cantidadPersonas == '') {
+        return 'Este campo no puede estar vacío ni ser cero.';
+    }
+    
+    return '';
+}
+
 function validarSalarios(salarios) {
     let errores = {};
     for(let i = 0; i < salarios.length; i++) {
