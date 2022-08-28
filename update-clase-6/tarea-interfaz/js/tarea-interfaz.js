@@ -79,6 +79,34 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function manejarErroresSalarios(erroresSalarios) {
+    const keys = Object.keys(erroresSalarios);
+    const $errores = document.querySelector('#errores-salarios');
+    const $salarios = document.querySelectorAll('.interfaz input');
+    let cantidadErrores = 0;
+
+    borrarErroresAnteriores();
+
+    keys.forEach(function(key) {
+        const error = erroresSalarios[key];
+        $salarios[key].className = ''
+
+        if(error) {
+            cantidadErrores++;
+            $salarios[key].className = 'error';
+
+            const $error = document.createElement('li');
+            $error.innerText = error;
+            $error.className = `error-${[key]}`;
+            $errores.appendChild($error);
+        } else {
+            $salarios[key].className = ''
+        }
+    });
+    
+    return cantidadErrores;
+}
+
 function validarCantidadPersonas(cantidadPersonas) {
     if(cantidadPersonas < 0) {
         return 'Este campo no puede contener números negativos.';
