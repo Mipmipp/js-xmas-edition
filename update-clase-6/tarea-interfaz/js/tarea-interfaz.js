@@ -5,9 +5,22 @@ document.querySelector('#confirmar-cantidad').onclick = function(event) {
 
     const $cantidadPersonas = document.querySelector('#cantidad-personas');
     const cantidadPersonas = Number($cantidadPersonas.value);
+    const errorCantidadPersonas = validarCantidadPersonas(cantidadPersonas);
 
-    borrarInterfaces();
-    crearInterfaces(cantidadPersonas);
+    const erroresPersonas = {
+        'cantidad-personas': errorCantidadPersonas,
+    }
+
+    const esExito = manejarErroresCantidadPersonas(erroresPersonas) === 0;
+
+    if(esExito) {
+        borrarInterfaces();
+        crearInterfaces(cantidadPersonas);
+    } else {
+        borrarInterfaces();
+    }
+
+
 };
 
 document.querySelector('#calcular').onclick = function(event) {
