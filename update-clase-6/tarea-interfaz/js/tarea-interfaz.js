@@ -79,6 +79,18 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function borrarErroresAnteriores() {
+    const $erroresPersonasAnteriores = document.querySelectorAll('#errores-personas li');
+    for(let i=0; i < $erroresPersonasAnteriores.length; i++) {
+        $erroresPersonasAnteriores[i].remove();
+    }
+
+    const $erroresSalariosAnteriores = document.querySelectorAll('#errores-salarios li');
+    for(let i=0; i < $erroresSalariosAnteriores.length; i++) {
+        $erroresSalariosAnteriores[i].remove();
+    }
+}
+
 function limpiarErrorCantidadPersonas() {
     const inputCantidadPersonas = document.querySelector('#cantidad-personas');
     inputCantidadPersonas.className = '';
