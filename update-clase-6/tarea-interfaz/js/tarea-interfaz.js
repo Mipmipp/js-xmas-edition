@@ -79,6 +79,22 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function validarSalarios(salarios) {
+    let errores = {};
+    for(let i = 0; i < salarios.length; i++) {
+        errores[i] = '';
+
+        if(salarios[i] == ' ') {
+            errores[i] = `El salario del integrante #${i + 1} no puede estar vacío.`;
+        } else if(salarios[i] <= 0) {
+            errores[i] = `El salario del integrante #${i + 1} no puede tener un número negativo.`;
+        }
+        
+    }
+    
+    return errores;
+}
+
 function borrarErroresAnteriores() {
     const $erroresPersonasAnteriores = document.querySelectorAll('#errores-personas li');
     for(let i=0; i < $erroresPersonasAnteriores.length; i++) {
