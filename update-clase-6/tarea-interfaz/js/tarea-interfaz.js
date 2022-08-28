@@ -79,6 +79,11 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function limpiarErrorCantidadPersonas() {
+    const inputCantidadPersonas = document.querySelector('#cantidad-personas');
+    inputCantidadPersonas.className = '';
+}
+
 function mostrarElemento(elemento) {
     document.querySelector(elemento).className = '';
 }
