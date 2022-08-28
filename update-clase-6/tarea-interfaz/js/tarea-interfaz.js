@@ -79,6 +79,31 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+function manejarErroresCantidadPersonas(erroresPersonas) {
+    const keys = Object.keys(erroresPersonas);
+    const $errores = document.querySelector('#errores-personas');
+    let cantidadErrores = 0;
+
+    borrarErroresAnteriores();
+
+    keys.forEach(function(key) {
+        const error = erroresPersonas[key];
+
+        if(error) {
+            cantidadErrores++;
+            $form[key].className = 'error'
+
+            const $error = document.createElement('li');
+            $error.innerText = error;
+            $errores.appendChild($error); 
+        } else {
+            $form[key].className = ''
+        }
+    });
+    
+    return cantidadErrores;
+}
+
 function manejarErroresSalarios(erroresSalarios) {
     const keys = Object.keys(erroresSalarios);
     const $errores = document.querySelector('#errores-salarios');
