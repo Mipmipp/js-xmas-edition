@@ -14,12 +14,20 @@
     <form id="interfaz">
 
         <label for="cantidad-personas">Seleccionar la cantidad de familiares</label>
-        <input type="number" id="cantidad-personas" placeholder="Cantidad">
+        <input type="number" id="cantidad-personas" name="cantidad-personas" min="1" placeholder="Cantidad" class="">
         <button id="confirmar-cantidad">Confirmar</button>
 
         <div id="interfaces">
         
         </div>
+
+        <ul id="errores-personas">
+
+        </ul>
+
+        <ul id="errores-salarios">
+
+        </ul>
 
         <button type="button" id="calcular" class="oculto">Calcular</button>
         <div id="calculos" class="oculto">
@@ -33,7 +41,8 @@
         
     </form>
 
-<script type="text/javascript" src="tarea-interfaz.js"></script>
-<script type="text/javascript" src="tarea-interfaz-calculos.js"></script>
+<script type="text/javascript" src="js/tarea-interfaz.js"></script>
+<script type="text/javascript" src="js/tarea-interfaz-calculos.js"></script>
+<script type="text/javascript" src="js/tarea-interfaz-pruebas.js"></script>
 </body>
 </html>
