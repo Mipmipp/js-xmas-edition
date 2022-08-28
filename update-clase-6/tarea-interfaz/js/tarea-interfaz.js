@@ -14,12 +14,18 @@ document.querySelector('#calcular').onclick = function(event) {
     event.preventDefault();
 
     const salarios = obtenerSalarios();
-    mostrarSalarios('mayorAnual', calcularMayorSalarioAnual(salarios));
-    mostrarSalarios('menorAnual', calcularMenorSalarioAnual(salarios));
-    mostrarSalarios('promedioAnual', obtenerSalarioPromedioAnual(salarios));
-    mostrarSalarios('promedioMensual', obtenerSalarioPromedioMensual(salarios));
+    const erroresSalarios = validarSalarios(salarios);
 
-    mostrarElemento('#calculos');
+    const esExito = manejarErroresSalarios(erroresSalarios) === 0;
+
+
+    if(esExito) {
+        mostrarSalarios('mayorAnual', calcularMayorSalarioAnual(salarios));
+        mostrarSalarios('menorAnual', calcularMenorSalarioAnual(salarios));
+        mostrarSalarios('promedioAnual', obtenerSalarioPromedioAnual(salarios));
+        mostrarSalarios('promedioMensual', obtenerSalarioPromedioMensual(salarios));
+        mostrarElemento('#calculos');
+    }
 }
 
 document.querySelector('#resetear').onclick = resetear;
