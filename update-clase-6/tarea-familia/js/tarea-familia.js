@@ -99,6 +99,8 @@ function resetear() {
     ocultarElemento('#calcular');
 }
 
+
+
 function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
     const keys = Object.keys(erroresEdadesIntegrantes);
     const $errores = document.querySelector('#errores-edades');
@@ -109,6 +111,7 @@ function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
 
     keys.forEach(function(key) {
         const error = erroresEdadesIntegrantes[key];
+        $integrantes[key].className = ''
 
         if(error) {
             cantidadErrores++;
@@ -119,7 +122,7 @@ function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
             $error.className = `error-${[key]}`;
             $errores.appendChild($error);
         } else {
-            $integrantes[key].className = '';
+            $integrantes[key].className = ''
         }
     });
     
@@ -157,11 +160,9 @@ function validarEdadIntegrantes(edades) {
         errores[i] = '';
 
         if(edades[i] == ' ') {
-            errores[i] = `Integrante#${i + 1} no puede estar vacío`;
-        }
-        
-        if(edades[i] <= 0) {
-            errores[i] = `Integrante#${i + 1} no puede ser menor o igual a cero`;
+            errores[i] = `Integrante#${i + 1} no puede estar vacío.`;
+        } else if(edades[i] <= 0) {
+            errores[i] = `Integrante#${i + 1} no puede ser un número negativo.`;
         }
         
     }
