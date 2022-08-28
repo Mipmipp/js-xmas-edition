@@ -1,3 +1,5 @@
+const $form = document.querySelector('#interfaz')
+
 document.querySelector('#confirmar-cantidad').onclick = function(event) {
     event.preventDefault();
 
