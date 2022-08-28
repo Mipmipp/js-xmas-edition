@@ -74,6 +74,8 @@ function mostrarSalarios(tipo, valor) {
 }
 
 function resetear() {
+    borrarErroresAnteriores();
+    limpiarErrorCantidadPersonas();
     borrarInterfaces();
     ocultarElemento('#calculos');
     ocultarElemento('#calcular');
