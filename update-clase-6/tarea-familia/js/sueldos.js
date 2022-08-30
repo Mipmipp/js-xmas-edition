@@ -93,7 +93,7 @@ function mostrarSalarios(tipo, valor) {
 }
 
 function resetear() {
-    borrarErroresAnteriores();
+    borrarErroresSueldosAnteriores();
     limpiarErrorCantidadPersonas();
     borrarInterfaces();
     ocultarElemento('#calculos-sueldos');
@@ -105,7 +105,7 @@ function manejarErroresCantidadPersonas(erroresPersonas) {
     const $errores = document.querySelector('#errores-personas');
     let cantidadErrores = 0;
 
-    borrarErroresAnteriores();
+    borrarErroresSueldosAnteriores();
 
     keys.forEach(function(key) {
         const error = erroresPersonas[key];
@@ -131,7 +131,7 @@ function manejarErroresSalarios(erroresSalarios) {
     const $salarios = document.querySelectorAll('.interfaz input');
     let cantidadErrores = 0;
 
-    borrarErroresAnteriores();
+    borrarErroresSueldosAnteriores();
 
     keys.forEach(function(key) {
         const error = erroresSalarios[key];
@@ -181,7 +181,7 @@ function validarSalarios(salarios) {
     return errores;
 }
 
-function borrarErroresAnteriores() {
+function borrarErroresSueldosAnteriores() {
     const $erroresPersonasAnteriores = document.querySelectorAll('#errores-personas li');
     for(let i=0; i < $erroresPersonasAnteriores.length; i++) {
         $erroresPersonasAnteriores[i].remove();

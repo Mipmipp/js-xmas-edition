@@ -92,7 +92,7 @@ function mostrarEdad(tipo, valor) {
 }
 
 function resetear() {
-    borrarErroresAnteriores();
+    borrarErroresEdadesAnteriores();
     limpiarErrorCantidadIntegrantes();
     borrarIntegrantesAnteriores();
     ocultarElemento('#calculos-edades');
@@ -107,7 +107,7 @@ function manejarErroresEdadesIntegrantes(erroresEdadesIntegrantes) {
     const $integrantes = document.querySelectorAll('.integrante input');
     let cantidadErrores = 0;
 
-    borrarErroresAnteriores();
+    borrarErroresEdadesAnteriores();
 
     keys.forEach(function(key) {
         const error = erroresEdadesIntegrantes[key];
@@ -134,7 +134,7 @@ function manejarErroresCantidadIntegrantes(erroresIntegrantes) {
     const $errores = document.querySelector('#errores-integrantes');
     let cantidadErrores = 0;
 
-    borrarErroresAnteriores();
+    borrarErroresEdadesAnteriores();
 
     keys.forEach(function(key) {
         const error = erroresIntegrantes[key];
@@ -182,7 +182,7 @@ function validarCantidadIntegrantes(cantidadIntegrantes) {
     return '';
 }
 
-function borrarErroresAnteriores() {
+function borrarErroresEdadesAnteriores() {
     const $erroresIntegrantesAnteriores = document.querySelectorAll('#errores-integrantes li');
     for(let i=0; i < $erroresIntegrantesAnteriores.length; i++) {
         $erroresIntegrantesAnteriores[i].remove();
