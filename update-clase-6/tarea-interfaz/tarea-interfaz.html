@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz sobre salarios de familiares</title>
+    <style type="text/css">
+        @import url('tarea-interfaz.css');
+     </style>
+</head>
+<body>
+
+    <form id="interfaz">
+
+        <label for="cantidad-personas">Seleccionar la cantidad de familiares</label>
+        <input type="number" id="cantidad-personas" name="cantidad-personas" min="1" placeholder="Cantidad" class="">
+        <button id="confirmar-cantidad">Confirmar</button>
+
+        <div id="interfaces">
+        
+        </div>
+
+        <ul id="errores-personas">
+
+        </ul>
+
+        <ul id="errores-salarios">
+
+        </ul>
+
+        <button type="button" id="calcular" class="oculto">Calcular</button>
+        <div id="calculos" class="oculto">
+            <p>El mayor salario anual es: <strong id="mayorAnual-salario"></strong></p>
+            <p>El menor salario anual es: <strong id="menorAnual-salario"></strong></p>
+            <p>El promedio del salario anual es: <strong id="promedioAnual-salario"></strong></p>
+            <p>El promedio del salario mensual es: <strong id="promedioMensual-salario"></strong></p>
+        </div>
+
+        <button type="reset" id="resetear">Resetear</button>
+        
+    </form>
+
+<script type="text/javascript" src="js/tarea-interfaz.js"></script>
+<script type="text/javascript" src="js/tarea-interfaz-calculos.js"></script>
+<script type="text/javascript" src="js/tarea-interfaz-pruebas.js"></script>
+</body>
+</html>
