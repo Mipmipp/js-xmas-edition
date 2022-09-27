@@ -16,11 +16,11 @@ document.querySelector('#confirmar-cantidad').onclick = function(event) {
     if(esExito) {
         borrarInterfaces();
         crearInterfaces(cantidadPersonas);
+        const $botonCalcularEdades = document.querySelector('#calcular-sueldos');
+        $botonCalcularEdades.className = 'btn btn-success';
     } else {
         borrarInterfaces();
     }
-
-
 };
 
 document.querySelector('#calcular-sueldos').onclick = function(event) {

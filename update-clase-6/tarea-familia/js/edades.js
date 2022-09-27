@@ -15,11 +15,12 @@ document.querySelector('#aniadir-cantidad-integrantes').onclick = function(event
 
     if(esExito) {
         borrarIntegrantesAnteriores();
-        crearIntegrantes(cantidadIntegrantes);        
+        crearIntegrantes(cantidadIntegrantes);
+        const $botonCalcularEdades = document.querySelector('#calcular-edades');
+        $botonCalcularEdades.className = 'btn btn-success';
     } else {
         borrarIntegrantesAnteriores();
     }
-
 };
 
 document.querySelector('#calcular-edades').onclick = function(event) {
